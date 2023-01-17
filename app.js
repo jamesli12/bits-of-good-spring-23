@@ -4,6 +4,7 @@ import cors from 'cors';
 
 import User from './user.js';
 import Animal from './animal.js';
+import TrainingLog from './trainingLog.js';
 import mongoose from 'mongoose';
 
 import bodyParser from 'body-parser';
@@ -152,7 +153,7 @@ function authenticateToken(req, res, next) {
       if (err) {
         return res.sendStatus(403);
       }
-      req.user = user;
+      req.user = user.user;
       next();
     })
   }
